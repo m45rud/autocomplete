@@ -74,8 +74,8 @@
 
                 // Selector input yang akan menampilkan autocomplete.
                 $( "#buah" ).autocomplete({
-                    serviceUrl: "source.php",   // Kode php untuk prosesing data
-                    dataType: "JSON",           // Tipe ddata JSON
+                    serviceUrl: "source.php",   // Kode php untuk prosesing data.
+                    dataType: "JSON",           // Tipe data JSON.
                     onSelect: function (suggestion) {
                         $( "#buah" ).val("" + suggestion.buah);
                     }
