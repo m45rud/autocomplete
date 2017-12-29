@@ -4,19 +4,30 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
         <title>Autocomplete Input Dengan PHP MySQLi &minus; MasRud.com</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <style>
+            body {
+            	font-family: 'Roboto', Arial, Sans-serif;
+            	font-size: 15px;
+            	font-weight: 400;
+            }
             .container {
                 left: 50%;
                 position: absolute;
-                top: 10%;
-                transform: translate(-50%, -10%);
+                top: 7.5%;
+                transform: translate(-50%, -7.5%);
             }
             input[type=text] {
-                border: 2px solid #ddd;
-                border-radius: 3px;
-                font-size: 16px;
-                padding: .75em;
-                width: 320px;
+                border: 2px solid #bdbdbd;
+                font-family: 'Roboto', Arial, Sans-serif;
+            	font-size: 15px;
+            	font-weight: 400;
+                padding: .5em .75em;
+                width: 300px;
+            }
+            input[type=text]:focus {
+                border: 2px solid #757575;
+            	outline: none;
             }
             .autocomplete-suggestions {
                 border: 1px solid #999;
