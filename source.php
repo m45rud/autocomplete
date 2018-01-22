@@ -1,5 +1,5 @@
 <?php
-    // Set header tipe konten.
+    // Set header type konten.
     header("Content-Type: application/json; charset=UTF-8");
 
     // Deklarasi variable untuk koneksi ke database.
@@ -9,18 +9,14 @@
     $database = "autocomplete";     // Nama database
 
     // Koneksi ke database.
-    $koneksi  = mysqli_connect($host, $username, $password, $database);
-    if ( ! $koneksi)
-    {
-        die("Koneksi database gagal: " . mysqli_connect_error());
-    }
+    $conn = new mysqli($host, $username, $password, $database);
 
     // Deklarasi variable keyword buah.
     $buah = $_GET["query"];
 
     // Query ke database.
-    $query = mysqli_query($koneksi, "SELECT * FROM table_buah WHERE buah LIKE '%$buah%' ORDER BY buah DESC");
-    $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $query = $conn->query("SELECT * FROM table_buah WHERE buah LIKE '%$buah%' ORDER BY buah DESC");
+    $result = $query->fetch_all(MYSQLI_ASSOC);
 
     // Format bentuk data untuk autocomplete.
     foreach($result as $data)
@@ -31,6 +27,6 @@
         ];
     }
 
-    // Enkode ke format JSON.
+    // Encode ke format JSON.
     echo json_encode($output);
 ?>
