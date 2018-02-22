@@ -31,8 +31,10 @@
             ];
         }
 
-        // Encode ke format JSON.
-        echo json_encode($output);
+        if (!empty($output)) {
+            // Encode ke format JSON.
+            echo json_encode($output);
+        }
 
     } else {
 
