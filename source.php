@@ -9,7 +9,7 @@
         // Deklarasi variable untuk koneksi ke database.
         $host     = "localhost";        // Server database
         $username = "root";             // Username database
-        $password = "root";             // Password database
+        $password = "masrud.com";       // Password database
         $database = "lab";     			// Nama database
 
         // Koneksi ke database.
