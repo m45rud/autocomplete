@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $host     = "localhost";// Server database
 $username = "root";     // Username database
 $password = "masrud.com";     // Password database
-$database = "lab";     // Nama database
+$database = "autocomplete";     // Nama database
 
 // Koneksi ke database.
 $conn = new mysqli($host, $username, $password, $database);
@@ -15,7 +15,7 @@ $conn = new mysqli($host, $username, $password, $database);
 $buah = $_GET["query"];
 
 // Query ke database.
-$query  = $conn->query("SELECT * FROM buah WHERE buah LIKE '%$buah%' ORDER BY buah DESC");
+$query  = $conn->query("SELECT * FROM tbl_buah WHERE buah LIKE '%$buah%' ORDER BY buah DESC");
 
 // Fetch hasil query.
 $result = $query->fetch_All(MYSQLI_ASSOC);
