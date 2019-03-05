@@ -16,17 +16,29 @@ $buah = $_GET["query"];
 
 // Query ke database.
 $query  = $conn->query("SELECT * FROM buah WHERE buah LIKE '%$buah%' ORDER BY buah DESC");
-$result = $query->fetch_all(MYSQLI_ASSOC);
 
-// Format bentuk data untuk autocomplete.
-foreach($result as $data) {
+// Fetch hasil query.
+$result = $query->fetch_All(MYSQLI_ASSOC);
+
+// Cek apakah ada yang cocok atau tidak.
+if (count($result) > 0) {
+    foreach($result as $data) {
+        $output['suggestions'][] = [
+            'value' => $data['buah'],
+            'buah'  => $data['buah']
+        ];
+    }
+
+    // Encode ke JSON.
+    echo json_encode($output);
+
+// Jika tidak ada yang cocok.
+} else {
     $output['suggestions'][] = [
-        'value' => $data['buah'],
-        'buah'  => $data['buah']
+        'value' => 'Not Found!',
+        'buah'  => ''
     ];
-}
 
-if (! empty($output)) {
-    // Encode ke format JSON.
+    // Encode ke JSON.
     echo json_encode($output);
 }
