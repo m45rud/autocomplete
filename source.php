@@ -35,7 +35,7 @@ if (count($result) > 0) {
 // Jika tidak ada yang cocok.
 } else {
     $output['suggestions'][] = [
-        'value' => 'Not Found!',
+        'value' => '',
         'buah'  => ''
     ];
 
